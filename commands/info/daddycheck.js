@@ -1,0 +1,10 @@
+module.exports = {
+    name: "daddycheck",
+    category: "info",
+    Permissions: [],
+    devOnly: false,
+    run: async ({client, message, args}) => {
+        message.reply("Hoooooooooo~~~~~~~~~~~~yyyyyaaaaaaaaaaaaaaaaaaaaaaaaaaa!~~~~~~~~~~~~~~~~~~")
+    } 
+
+}
