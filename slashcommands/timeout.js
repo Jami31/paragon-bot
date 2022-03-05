@@ -8,7 +8,8 @@ const durations = [
 	{ name: "1 hour", value: 60 * 60 * 1000 },
 	{ name: "1 day", value: 24 * 60 * 60 * 1000 },
 	{ name: "1 week", value: 7 * 24 * 60 * 60 * 1000 },
-    { name: "1 month, for aisle only", value: 5 * 7 * 24 * 60 * 60 * 1000 },
+    { name: "1 month, for aisle only", value: 30 * 24 * 60 * 60 * 1000 },
+
 ]
 
 const run = async (client, interaction) => {
