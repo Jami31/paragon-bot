@@ -1,4 +1,4 @@
-const { Client, Message, MessageEmbed } = require("discord.js")
+const { DiscordAPIError, Message } = require("discord.js")
 
 const durations = [
 	{ name: "60 seconds", value: 60 * 1000 },
@@ -12,30 +12,23 @@ const durations = [
 
 const run = async (client, interaction) => {
     let member = interaction.options.getMember("user")
-    let duration = interaction.options.getNumber("duration")
-    let reason = interaction.options.getString("reason") || "No reason given"
+	let duration = interaction.options.getNumber("duration")
+	let reason = interaction.options.getString("reason") || "No reason given"
 
-    const newEmbed = new Discord.MessageEmbed()
+	if (!member) return interaction.reply("You must provide a user to timeout")
 
-        .setColor('#304281')
-        .setTitle('test')
-        .setDescription('this is just a test')
-        .setFooter('test');
+	try {
+		await member.timeout(duration, reason)
+		 return interaction.reply(
 
-    if (!member) return interaction.reply("You must provide a user to timeout")
-
-    try {
-        await member.timeout(duration, reason)
-         return interaction.reply(
-
-             {embeds: [newEmbed]}
-         )
-    } catch (e) {
-        if (e) {
-            console.error(e)
-            return interaction.reply(`Failed to timeout ${member.tag}`)
-        }
-    }
+		 	`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`
+		 )
+	} catch (e) {
+		if (e) {
+			console.error(e)
+			return interaction.reply(`Failed to timeout ${member.tag}`)
+		}
+	}
 }
 
 module.exports = {
