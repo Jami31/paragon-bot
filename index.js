@@ -33,13 +33,14 @@ module.exports = bot
 
  client.on("ready", () => {
      console.log(`Logged in as ${client.user.tag}`)
+     client.user.setActivity('you', { type: "LISTENING"})
+     .catch(console.error)
  })
 
  client.on("messageCreate", (message) => {
     if (message.content == "daddy cheer mo ko") {
         message.reply("no")
     }
-    
     if (message.content == "daddy maganda ba ko") {
         message.reply("no")
     }

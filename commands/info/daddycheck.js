@@ -1,5 +1,5 @@
 module.exports = {
-    name: "daddycheck",
+    name: "ping",
     category: "info",
     Permissions: [],
     devOnly: false,
