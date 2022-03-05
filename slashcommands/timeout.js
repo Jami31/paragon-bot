@@ -1,12 +1,4 @@
-const { DiscordAPIError, Message } = require("discord.js")
-
-const client = new Discord.Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MESSAGES",
-        "GUILD_MEMBERS"
-    ]
-})
+const { Client, Message, MessageEmbed } = require("discord.js")
 
 const durations = [
 	{ name: "60 seconds", value: 60 * 1000 },
@@ -24,6 +16,7 @@ const run = async (client, interaction) => {
     let reason = interaction.options.getString("reason") || "No reason given"
 
     const newEmbed = new Discord.MessageEmbed()
+
         .setColor('#304281')
         .setTitle('test')
         .setDescription('this is just a test')
