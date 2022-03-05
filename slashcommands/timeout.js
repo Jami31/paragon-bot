@@ -17,10 +17,11 @@ const run = async (client, interaction, message) => {
 	let reason = interaction.options.getString("reason") || "No reason given"
 
     const newEmbed = new Discord.MessageEmbed()
-
-        .setColor('#304281')
-        .setTitle('test')
-        .setDescription('this is just a test')
+        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+        .setColor("RANDOM")
+        .setTitle('Timeout ka muna')
+        .setDescription(`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`)
+        .setTimestamp()
         .setFooter('test');
 
 	if (!member) return interaction.reply("You must provide a user to timeout")
