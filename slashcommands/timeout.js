@@ -19,8 +19,8 @@ const run = async (client, interaction, message) => {
     const newEmbed = new Discord.MessageEmbed()
         .setAuthor(`${interaction.user}`, interaction.user.displayAvatarURL({ dynamic: true }))
         .setColor("RANDOM")
-        .setTitle('Timeout ka muna')
-        .setDescription(`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`)
+        .setTitle('Timeout')
+        .setDescription(`${member.user} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`)
         .setTimestamp()
         .setFooter({ text: 'Timeout'})
 
