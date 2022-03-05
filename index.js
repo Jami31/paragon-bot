@@ -43,6 +43,9 @@ module.exports = bot
     if (message.content == "daddy maganda ba ko") {
         message.reply("no")
     }
+    if (message.content == "daddy pogi ba si jami") {
+        message.reply("yes")
+    }
  })
 
  const welcomeChannelId = "948138787391799306"
