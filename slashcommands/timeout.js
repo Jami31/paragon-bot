@@ -20,7 +20,7 @@ const run = async (client, interaction, message) => {
         .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
         .setColor("RANDOM")
         .setTitle('Timeout')
-        .setDescription(`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} \n with a reason of *${reason}*`)
+        .setDescription(`@${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} \n with a reason of *${reason}*`)
         .setTimestamp()
         .setFooter({ text: 'Timeout'})
         .setThumbnail(client.user.displayAvatarURL())
