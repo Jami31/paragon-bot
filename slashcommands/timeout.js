@@ -17,7 +17,7 @@ const run = async (client, interaction, message) => {
 	let reason = interaction.options.getString("reason") || "No reason given"
 
     const newEmbed = new Discord.MessageEmbed()
-        .setAuthor(`${interaction.user}`, interaction.user.displayAvatarURL({ dynamic: true }))
+        .setAuthor(`${interaction.user.id}`, interaction.user.displayAvatarURL({ dynamic: true }))
         .setColor("RANDOM")
         .setTitle('Timeout')
         .setDescription(`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`)
