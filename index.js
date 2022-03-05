@@ -33,7 +33,7 @@ module.exports = bot
 
  client.on("ready", () => {
      console.log(`Logged in as ${client.user.tag}`)
-     client.user.setActivity('to you', { type: "LISTENING"}).catch(console.error)
+     client.user.setActivity('you', { type: "LISTENING"}).catch(console.error)
  })
 
  client.on("messageCreate", (message) => {
