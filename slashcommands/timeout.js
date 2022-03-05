@@ -19,17 +19,10 @@ const run = async (client, interaction) => {
 
 	try {
 		await member.timeout(duration, reason)
-        const newTimeoutEmbed = new Discord.MessageEmbed()
+		 return interaction.reply(
 
-            .setColor('red')
-            .setTitle("test")
-            .setDescription("yes")
-
-        Message.channel.send(newTimeoutEmbed);
-		// return interaction.reply(
-
-		// 	`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`
-		// )
+		 	`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`
+		 )
 	} catch (e) {
 		if (e) {
 			console.error(e)
