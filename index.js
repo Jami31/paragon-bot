@@ -13,7 +13,7 @@ const client = new Discord.Client({
 
 let bot = {
     client,
-    prefix: "n.",
+    prefix: "daddy",
     owners: ["653363136002523158"]
 }
 
@@ -36,18 +36,30 @@ module.exports = bot
  })
 
  client.on("messageCreate", (message) => {
-     if (message.content == "daddy cheer mo kofi") {
-         message.reply("no")
+    if (message.content == "daddy cheer mo ko") {
+        message.reply("no")
+    }
+    
+    if (message.content == "daddy maganda ba ko") {
+        message.reply("no")
     }
  })
 
  const welcomeChannelId = "948138787391799306"
 
  client.on("guildMemberAdd", async (member) => {
-     const img = await generateImage(member)
-     member.guild.channels.cache.get(welcomeChannelId).send({
-         content: `Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`,
-         files: [img]
-     })
+    const img = await generateImage(member)
+    const welcomeEmbed = new Discord.MessageEmbed()
+
+        .setColor('red')
+        .setTitle("test")
+        .setDescription(`Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`)
+        .setImage(img)
+
+    message.channel.send(welcomeEmbed)
+    //  member.guild.channels.cache.get(welcomeChannelId).send({
+    //      content: `Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`,
+    //      files: [img]
+    //  })
  })
 client.login(process.env.TOKEN)
