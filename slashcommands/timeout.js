@@ -1,3 +1,5 @@
+const { DiscordAPIError, Message } = require("discord.js")
+
 const durations = [
 	{ name: "60 seconds", value: 60 * 1000 },
 	{ name: "5 minutes", value: 5 * 60 * 1000 },
@@ -17,9 +19,17 @@ const run = async (client, interaction) => {
 
 	try {
 		await member.timeout(duration, reason)
-		return interaction.reply(
-			`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`
-		)
+        const newTimeoutEmbed = new Discord.MessageEmbed()
+
+            .setColor('red')
+            .setTitle("test")
+            .setDescription("yes")
+
+        Message.channel.send(newTimeoutEmbed);
+		// return interaction.reply(
+
+		// 	`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`
+		// )
 	} catch (e) {
 		if (e) {
 			console.error(e)

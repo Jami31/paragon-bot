@@ -32,5 +32,3 @@ client.on("ready", async () => {
     process.exit(0)
 })
 // node ./loadslash.js for command apply
-
-client.login(process.env.TOKEN)
