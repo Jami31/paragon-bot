@@ -19,10 +19,11 @@ const run = async (client, interaction, message) => {
     const newEmbed = new Discord.MessageEmbed()
         .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
         .setColor("RANDOM")
-        .setTitle('Timeout')
+        .setTitle('Timeout ka muna')
         .setDescription(`${member.user.tag} has been timed out for ${durations.find((d) => duration === d.value)?.name} with a reason of *${reason}*`)
         .setTimestamp()
         .setFooter({ text: 'Timeout'})
+        .setThumbnail(client.user.displayAvatarURL())
 
 	if (!member) return interaction.reply("You must provide a user to timeout")
 
