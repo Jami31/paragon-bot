@@ -49,17 +49,9 @@ module.exports = bot
 
  client.on("guildMemberAdd", async (member) => {
     const img = await generateImage(member)
-    const welcomeEmbed = new Discord.MessageEmbed()
-
-        .setColor('red')
-        .setTitle("test")
-        .setDescription(`Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`)
-        .setImage(img)
-
-    message.channel.send(welcomeEmbed)
-    //  member.guild.channels.cache.get(welcomeChannelId).send({
-    //      content: `Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`,
-    //      files: [img]
-    //  })
+          member.guild.channels.cache.get(welcomeChannelId).send({
+          content: `Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`,
+          files: [img]
+     })
  })
 client.login(process.env.TOKEN)
