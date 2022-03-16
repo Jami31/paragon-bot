@@ -61,7 +61,6 @@ module.exports = bot
         .setTimestamp()
         .setFooter({ text: 'Ban'})
         .setThumbnail(client.user.displayAvatarURL())
-        .setImage(img)
 
           member.guild.channels.cache.get(welcomeChannelId).send({
           embeds: [welcomeEmbed]
