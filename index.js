@@ -51,23 +51,26 @@ module.exports = bot
     }
  })
 
-//  const welcomeChannelId = "948138787391799306"
+ const welcomeChannelId = "948138787391799306"
 
-//  client.on("guildMemberAdd", async (member) => {
-//     const img = await generateImage(member)
+ client.on("guildMemberAdd", async (member) => {
+    const img = await generateImage(member)
 
-//     const welcomeEmbed = new Discord.MessageEmbed()
-//         .setAuthor("Paragon", client.user.displayAvatarURL())
-//         .setColor('#2f3136')
-//         .setTitle('Welcome!')
-//         .setDescription(`Heyyy~ <@${member.id}>, On behalf of the whole \ndepartment,welcome onboard! We believe\n you will bea terrific asset to Roleplayer's Paragon!\n`)
-//         .setTimestamp()
-//         .setFooter({ text: 'Welcome'})
-//         .setThumbnail(client.user.displayAvatarURL())
-//         .attachFiles(img)
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
-//           member.guild.channels.cache.get(welcomeChannelId).send({
-//           embeds: [welcomeEmbed]
-//      })
-//  })
+    const welcomeEmbed = new Discord.MessageEmbed()
+        .setAuthor("Paragon", client.user.displayAvatarURL())
+        .setColor('#2f3136')
+        .setTitle('Welcome!')
+        .setDescription(`Heyyy~ <@${member.id}>, On behalf of the whole \ndepartment,welcome onboard! We believe\n you will bea terrific asset to Roleplayer's Paragon!\n`)
+        .setTimestamp()
+        .setFooter({ text: 'Welcome'})
+        .setThumbnail(client.user.displayAvatarURL())
+        .setImage("attachment://welcome-image.png")
+        .attachFiles(img)
+
+          member.guild.channels.cache.get(welcomeChannelId).send({
+          embeds: [welcomeEmbed]
+     })
+ })
 client.login(process.env.TOKEN)
