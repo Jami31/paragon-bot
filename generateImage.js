@@ -2,6 +2,14 @@ const Canvas = require ("canvas")
 const Discord = require("discord.js")
 const background = "https://i.postimg.cc/dVSpq0PH/frfrwelcome.png"
 
+const client = new Discord.Client({
+    intents: [
+        "GUILDS",
+        "GUILD_MESSAGES",
+        "GUILD_MEMBERS"
+    ]
+})
+
 const dim = {
     height: 559,
     width: 1298,
