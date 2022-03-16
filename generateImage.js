@@ -5,7 +5,7 @@ const background = "https://i.postimg.cc/T1RzPgzv/PARAGONwelcome.gif"
 const dim = {
     height: 469,
     width: 1298,
-    margin: 0
+    margin: 50
 }
 
 const av = {
@@ -23,7 +23,8 @@ const generateImage = async (member) => {
     const ctx = canvas.getContext("2d")
 
     // draw in the background
-    const backimg = await Canvas.loadImage(background)
+    const backimg = await Canvas.loadImage(background) 
+    
     ctx.drawImage(backimg, 0, 0)
 
     // // draw black tinted box
