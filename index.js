@@ -60,7 +60,7 @@ module.exports = bot
  client.on("guildMemberAdd", async (member) => {
     const img = await generateImage(member)
 
-    const attachment = new Discord.MessageAttachment(Canvas.toBuffer(), [img]);
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), [img]);
 
     const welcomeEmbed = new Discord.MessageEmbed()
         .setAuthor("Paragon", client.user.displayAvatarURL())
