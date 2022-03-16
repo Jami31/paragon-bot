@@ -64,10 +64,10 @@ module.exports = bot
         .setTimestamp()
         .setFooter({ text: 'Welcome'})
         .setThumbnail(client.user.displayAvatarURL())
+        .attachFiles(img)
 
           member.guild.channels.cache.get(welcomeChannelId).send({
-          embeds: [welcomeEmbed],
-          files: [img]
+          embeds: [welcomeEmbed]
      })
  })
 client.login(process.env.TOKEN)
