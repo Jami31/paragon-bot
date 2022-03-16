@@ -10,7 +10,7 @@ const dim = {
 
 const av = {
     size: 256,
-    x: 480,
+    x: 680,
     y: 170
 }
 
@@ -26,9 +26,9 @@ const generateImage = async (member) => {
     const backimg = await Canvas.loadImage(background)
     ctx.drawImage(backimg, 0, 0)
 
-    // draw black tinted box
-    ctx.fillStyle = "rgba(0,0,0,0.7)"
-    ctx.fillRect(0,0,1200,675)
+    // // draw black tinted box
+    // ctx.fillStyle = "rgba(0,0,0,0.7)"
+    // ctx.fillRect(0,0,1200,675)
 
     const avimg = await Canvas.loadImage(avatarURL)
     ctx.save()
