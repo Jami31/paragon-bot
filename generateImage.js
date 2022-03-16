@@ -23,7 +23,7 @@ const av = {
     y: 170
 }
 
-const generateImage = async (member) => {
+client.on("generateImage", async (member) => {
     let username = member.user.username
     let discrim = member.user.discriminator
     let avatarURL = member.user.displayAvatarURL({format: "png", dynamic: false, size: av.size})
@@ -36,10 +36,6 @@ const generateImage = async (member) => {
 
     ctx.drawImage(backimg, 0, 0)
 
-    // // draw black tinted box
-    // ctx.fillStyle = "rgba(0,0,0,0.7)"
-    // ctx.fillRect(0,0,1200,675)
-
     const avimg = await Canvas.loadImage(avatarURL)
     ctx.save()
 
@@ -51,26 +47,6 @@ const generateImage = async (member) => {
     ctx.drawImage(avimg, av.x, av.y)
     ctx.restore()
 
-    // // write in text
-    // ctx.fillStyle = "white"
-    // ctx.textAlign = "center"
-
-    // // draw in Welcomg
-    // ctx.font = "70px BankGothic Md BT"
-    // ctx.fillText("W E L C O M E", dim.width/2, dim.margin + 70)
-
-    // // draw in the username
-    // ctx.font = "60px BankGothic Md BT"
-    // ctx.fillText(username + "#" + discrim, dim.width/2, dim.height - dim.margin - 125)
- 
-    // // draw in to the server
-    // ctx.font = "40px BankGothic Md BT"
-    // ctx.fillText("T O  P A R A G O N", dim.width / 2, dim.height - dim.margin - 50)
-
-
-    client.on("guildMemberAdd", async (member) => {
-
-        const img = await generateImage(member)
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
     const welcomeChannelId = "948138787391799306"
@@ -87,10 +63,6 @@ const generateImage = async (member) => {
            .setImage(`attachment://welcome.png`)
            .attachFiles(attachment)
    
-             member.guild.channels.cache.get(welcomeChannelId).send({
-             embeds: [welcomeEmbed]
-        })
-    })
-}
-
-module.exports = generateImage
+            channel.send(welcomeEmbed)
+        
+})
