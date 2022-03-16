@@ -24,7 +24,7 @@ const generateImage = async (member) => {
 
     // draw in the background
     const backimg = await Canvas.loadImage(background);
-    ctx.drawImage(background, 0, 0, canvas.width, canvas,height);
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     // // draw black tinted box
     // ctx.fillStyle = "rgba(0,0,0,0.7)"
