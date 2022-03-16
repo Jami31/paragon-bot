@@ -10,14 +10,14 @@ const dim = {
 
 const av = {
     size: 256,
-    x: 400,
+    x: 500,
     y: 170
 }
 
 const generateImage = async (member) => {
     let username = member.user.username
     let discrim = member.user.discriminator
-    let avatarURL = member.user.displayAvatarURL({format: "png", dynamic: false, size: av.size})
+    let avatarURL = member.user.displayAvatarURL({format: "gif", dynamic: false, size: av.size})
 
     const canvas = Canvas.createCanvas(dim.width, dim.height)
     const ctx = canvas.getContext("2d")
