@@ -10,8 +10,8 @@ const dim = {
 
 const av = {
     size: 256,
-    x: 680,
-    y: 570
+    x: 380,
+    y: 170
 }
 
 const generateImage = async (member) => {
@@ -57,7 +57,7 @@ const generateImage = async (member) => {
     // ctx.font = "40px BankGothic Md BT"
     // ctx.fillText("T O  P A R A G O N", dim.width / 2, dim.height - dim.margin - 50)
 
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.gif")
     return attachment
 
 
