@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const background = "https://i.postimg.cc/T1RzPgzv/PARAGONwelcome.gif"
 
 const dim = {
-    height: 670,
+    height: 970,
     width: 1864,
     margin: 100
 }
@@ -22,9 +22,9 @@ const generateImage = async (member) => {
     const canvas = Canvas.createCanvas(dim.width, dim.height)
     const ctx = canvas.getContext("2d")
 
-    // draw in the background
-    const backimg = await Canvas.loadImage(background)
-    ctx.drawImage(backimg, 0, 0)
+    // // draw in the background
+    // const backimg = await Canvas.loadImage(background)
+    // ctx.drawImage(backimg, 0, 0)
 
     // // draw black tinted box
     // ctx.fillStyle = "rgba(0,0,0,0.7)"
@@ -33,13 +33,13 @@ const generateImage = async (member) => {
     const avimg = await Canvas.loadImage(avatarURL)
     ctx.save()
 
-    ctx.beginPath()
-    ctx.arc(av.x + av.size / 2, av.y + av.size / 2, av.size / 2, 0, Math.PI * 2, true)
-    ctx.closePath()
-    ctx.clip()
+    // ctx.beginPath()
+    // ctx.arc(av.x + av.size / 2, av.y + av.size / 2, av.size / 2, 0, Math.PI * 2, true)
+    // ctx.closePath()
+    // ctx.clip()
 
-    ctx.drawImage(avimg, av.x, av.y)
-    ctx.restore()
+    // ctx.drawImage(avimg, av.x, av.y)
+    // ctx.restore()
 
     // // write in text
     // ctx.fillStyle = "white"
