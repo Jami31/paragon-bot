@@ -79,7 +79,7 @@ const welcomeChannelId = "948138787391799306"
         .setTimestamp()
         .setFooter({ text: 'Welcome'})
         .setThumbnail(client.user.displayAvatarURL())
-        .setImage("attachment://welcome-image.png")
+        .setImage("attachment://welcome.png")
         .attachFiles(attachment)
 
           member.guild.channels.cache.get(welcomeChannelId).send({
