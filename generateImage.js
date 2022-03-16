@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const background = "https://i.postimg.cc/T1RzPgzv/PARAGONwelcome.gif"
 
 const dim = {
-    height: 970,
+    height: 670,
     width: 1864,
     margin: 100
 }
@@ -33,13 +33,13 @@ const generateImage = async (member) => {
     const avimg = await Canvas.loadImage(avatarURL)
     ctx.save()
 
-    // ctx.beginPath()
-    // ctx.arc(av.x + av.size / 2, av.y + av.size / 2, av.size / 2, 0, Math.PI * 2, true)
-    // ctx.closePath()
-    // ctx.clip()
+    ctx.beginPath()
+    ctx.arc(av.x + av.size / 2, av.y + av.size / 2, av.size / 2, 0, Math.PI * 2, true)
+    ctx.closePath()
+    ctx.clip()
 
-    // ctx.drawImage(avimg, av.x, av.y)
-    // ctx.restore()
+    ctx.drawImage(avimg, av.x, av.y)
+    ctx.restore()
 
     // // write in text
     // ctx.fillStyle = "white"
