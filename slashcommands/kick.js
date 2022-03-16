@@ -1,3 +1,6 @@
+const { DiscordAPIError, Message } = require("discord.js")
+const Discord = require("discord.js")
+
 const run = async (client, interaction) => {
 	let user = interaction.options.getUser("user")
 	let reason = interaction.options.getString("reason") || "No reason given"
