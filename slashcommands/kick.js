@@ -2,12 +2,24 @@ const run = async (client, interaction) => {
 	let user = interaction.options.getUser("user")
 	let reason = interaction.options.getString("reason") || "No reason given"
 
+	const kickedEmbed = new Discord.MessageEmbed()
+        .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
+        .setColor('#2E2F33')
+        .setTitle('Kicked')
+        .setDescription(`${member.user} has been kicked out for \n *${reason}*`)
+        .setTimestamp()
+        .setFooter({ text: 'Kicked'})
+        .setThumbnail(client.user.displayAvatarURL())
+
 	if (!user) return interaction.reply("You must provide a user to kick")
 
-	// ban
+	// kicked
 	try {
 		await interaction.guild.members.kick(user, reason)
-		return interaction.reply(`${user.tag} has been kicked for *${reason}*`)
+		return interaction.reply(
+            {embeds: [kickedEmbed]}
+		 	
+		 )
 	} catch (e) {
 		if (e) {
 			console.error(e)

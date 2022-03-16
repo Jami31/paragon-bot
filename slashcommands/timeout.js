@@ -16,9 +16,9 @@ const run = async (client, interaction, message) => {
 	let duration = interaction.options.getNumber("duration")
 	let reason = interaction.options.getString("reason") || "No reason given"
 
-    const newEmbed = new Discord.MessageEmbed()
+    const timeoutEmbed = new Discord.MessageEmbed()
         .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
-        .setColor("RANDOM")
+        .setColor('#2E2F33')
         .setTitle('Timeout')
         .setDescription(`${member.user} has been timed out for ${durations.find((d) => duration === d.value)?.name} \n with a reason of *${reason}*`)
         .setTimestamp()
@@ -30,7 +30,7 @@ const run = async (client, interaction, message) => {
 	try {
 		await member.timeout(duration, reason)
 		 return interaction.reply(
-            {embeds: [newEmbed]}
+            {embeds: [timeoutEmbed]}
 		 	
 		 )
 	} catch (e) {

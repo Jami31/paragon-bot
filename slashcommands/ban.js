@@ -2,6 +2,15 @@ const run = async (client, interaction) => {
 	let user = interaction.options.getUser("user")
 	let reason = interaction.options.getString("reason") || "No reason given"
 
+	const banEmbed = new Discord.MessageEmbed()
+        .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
+        .setColor('#2E2F33')
+        .setTitle('Ban')
+        .setDescription(`${member.user} has been Banned out for \n *${reason}*`)
+        .setTimestamp()
+        .setFooter({ text: 'Ban'})
+        .setThumbnail(client.user.displayAvatarURL())
+
 	if (!user) return interaction.reply("You must provide a user to ban")
 
 	// ban
@@ -9,7 +18,10 @@ const run = async (client, interaction) => {
 		await interaction.guild.bans.create(user, {
 			reason,
 		})
-		return interaction.reply(`${user.tag} has been banned for *${reason}*`)
+		return interaction.reply(
+            {embeds: [banEmbed]}
+		 	
+		 )
 	} catch (e) {
 		if (e) {
 			console.error(e)
