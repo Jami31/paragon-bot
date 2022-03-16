@@ -55,7 +55,8 @@ module.exports = bot
 
  client.on("guildMemberAdd", async (member) => {
     const img = await generateImage(member)
-    const Canvas = require("canvas");
+    const Canvas = require("canvas")
+    const canvas = createCanvas(200, 200)
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
