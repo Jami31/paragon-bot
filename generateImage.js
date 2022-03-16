@@ -3,8 +3,8 @@ const Discord = require("discord.js")
 const background = "https://i.postimg.cc/T1RzPgzv/PARAGONwelcome.gif"
 
 const dim = {
-    height: 670,
-    width: 1864,
+    height: 469,
+    width: 1298,
     margin: 0
 }
 
@@ -19,12 +19,12 @@ const generateImage = async (member) => {
     let discrim = member.user.discriminator
     let avatarURL = member.user.displayAvatarURL({format: "png", dynamic: false, size: av.size})
 
-    const canvas = Canvas.createCanvas(dim.width, dim.height);
-    const ctx = canvas.getContext("2d");
+    const canvas = Canvas.createCanvas(dim.width, dim.height)
+    const ctx = canvas.getContext("2d")
 
     // draw in the background
-    const backimg = await Canvas.loadImage(background);
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    const backimg = await Canvas.loadImage(background)
+    ctx.drawImage(backimg, 0, 0)
 
     // // draw black tinted box
     // ctx.fillStyle = "rgba(0,0,0,0.7)"
