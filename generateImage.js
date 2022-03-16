@@ -5,13 +5,13 @@ const background = "https://i.postimg.cc/T1RzPgzv/PARAGONwelcome.gif"
 const dim = {
     height: 675,
     width: 1564,
-    margin: 50
+    margin: 0
 }
 
 const av = {
     size: 256,
     x: 680,
-    y: 170
+    y: 570
 }
 
 const generateImage = async (member) => {
