@@ -60,8 +60,6 @@ module.exports = bot
  client.on("guildMemberAdd", async (member) => {
     const img = await generateImage(member)
 
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), [img]);
-
     const welcomeEmbed = new Discord.MessageEmbed()
         .setAuthor("Paragon", client.user.displayAvatarURL())
         .setColor('#2f3136')
@@ -70,7 +68,7 @@ module.exports = bot
         .setTimestamp()
         .setFooter({ text: 'Welcome'})
         .setThumbnail(client.user.displayAvatarURL())
-        .setImage(attachment)
+        .setImage(img)
         .attachFiles(img)
 
           member.guild.channels.cache.get(welcomeChannelId).send({
