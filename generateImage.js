@@ -22,9 +22,9 @@ const generateImage = async (member) => {
     const canvas = Canvas.createCanvas(dim.width, dim.height)
     const ctx = canvas.getContext("2d")
 
-    // // draw in the background
-    // const backimg = await Canvas.loadImage(background)
-    // ctx.drawImage(backimg, 0, 0)
+    // draw in the background
+    const backimg = await Canvas.loadImage(background)
+    ctx.drawImage(backimg, 0, 0)
 
     // // draw black tinted box
     // ctx.fillStyle = "rgba(0,0,0,0.7)"
