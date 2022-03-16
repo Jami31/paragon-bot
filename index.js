@@ -60,11 +60,10 @@ module.exports = bot
         .setAuthor("Paragon", client.user.displayAvatarURL())
         .setColor('#2f3136')
         .setTitle('Welcome!')
-        .setDescription(`Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`)
+        .setDescription(`Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon! \n\n ${img}`)
         .setTimestamp()
         .setFooter({ text: 'Welcome'})
         .setThumbnail(client.user.displayAvatarURL())
-        .setImage(img)
 
           member.guild.channels.cache.get(welcomeChannelId).send({
           embeds: [welcomeEmbed]
