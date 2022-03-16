@@ -1,5 +1,9 @@
 const { DiscordAPIError, Message } = require("discord.js")
+
 const Discord = require("discord.js")
+
+const Canvas = require("canvas")
+
 require("dotenv").config()
 
 const generateImage = require("./generateImage")
@@ -55,10 +59,8 @@ module.exports = bot
 
  client.on("guildMemberAdd", async (member) => {
     const img = await generateImage(member)
-    const Canvas = require("canvas")
-    const canvas = createCanvas(200, 200)
 
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
+    const attachment = new Discord.MessageAttachment(Canvas.toBuffer(), [img]);
 
     const welcomeEmbed = new Discord.MessageEmbed()
         .setAuthor("Paragon", client.user.displayAvatarURL())
@@ -68,7 +70,7 @@ module.exports = bot
         .setTimestamp()
         .setFooter({ text: 'Welcome'})
         .setThumbnail(client.user.displayAvatarURL())
-        .setImage("attachment://welcome-image.png")
+        .setImage(attachment)
         .attachFiles(img)
 
           member.guild.channels.cache.get(welcomeChannelId).send({
