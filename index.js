@@ -69,7 +69,6 @@ module.exports = bot
         .setFooter({ text: 'Welcome'})
         .setThumbnail(client.user.displayAvatarURL())
         .setImage(img)
-        .attachFiles(img)
 
           member.guild.channels.cache.get(welcomeChannelId).send({
           embeds: [welcomeEmbed]
