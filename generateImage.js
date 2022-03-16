@@ -60,8 +60,23 @@ const generateImage = async (member) => {
     // ctx.fillText("T O  P A R A G O N", dim.width / 2, dim.height - dim.margin - 50)
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
-    return attachment
+    const welcomeChannelId = "948138787391799306"
+   
+       const welcomeEmbed = new Discord.MessageEmbed()
 
+           .setAuthor("Paragon", client.user.displayAvatarURL())
+           .setColor('#2f3136')
+           .setTitle('Welcome!')
+           .setDescription(`Heyyy~ <@${member.id}>, On behalf of the whole \ndepartment,welcome onboard! We believe\n you will bea terrific asset to Roleplayer's Paragon!\n`)
+           .setTimestamp()
+           .setFooter({ text: 'Welcome'})
+           .setThumbnail(client.user.displayAvatarURL())
+           .setImage(`attachment://welcome.png`)
+           .attachFiles(attachment)
+   
+             member.guild.channels.cache.get(welcomeChannelId).send({
+             embeds: [welcomeEmbed]
+        })
 
 }
 
