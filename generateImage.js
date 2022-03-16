@@ -9,7 +9,7 @@ const dim = {
 }
 
 const av = {
-    size: 256,
+    size: 246,
     x: 500,
     y: 170
 }
