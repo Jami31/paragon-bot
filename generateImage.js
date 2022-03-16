@@ -2,13 +2,6 @@ const Canvas = require ("canvas")
 const Discord = require("discord.js")
 const background = "https://i.postimg.cc/dVSpq0PH/frfrwelcome.png"
 
-const client = new Discord.Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MESSAGES",
-        "GUILD_MEMBERS"
-    ]
-})
 
 const dim = {
     height: 559,
@@ -73,24 +66,3 @@ const generateImage = async (member) => {
 }
 
 module.exports = generateImage
-
-const welcomeChannelId = "948138787391799306"
-
- client.on("guildMemberAdd", async (member) => {
-    const img = await generateImage(member)
-
-    const welcomeEmbed = new Discord.MessageEmbed()
-        .setAuthor("Paragon", client.user.displayAvatarURL())
-        .setColor('#2f3136')
-        .setTitle('Welcome!')
-        .setDescription(`Heyyy~ <@${member.id}>, On behalf of the whole \ndepartment,welcome onboard! We believe\n you will bea terrific asset to Roleplayer's Paragon!\n`)
-        .setTimestamp()
-        .setFooter({ text: 'Welcome'})
-        .setThumbnail(client.user.displayAvatarURL())
-        .setImage("attachment://welcome.png")
-        .attachFiles(attachment)
-
-          member.guild.channels.cache.get(welcomeChannelId).send({
-          embeds: [welcomeEmbed]
-     })
- })
