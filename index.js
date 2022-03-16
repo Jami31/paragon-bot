@@ -60,7 +60,7 @@ module.exports = bot
         .setAuthor("Paragon", client.user.displayAvatarURL())
         .setColor('#2f3136')
         .setTitle('Welcome!')
-        .setDescription(`Heyyy~ <@${member.id}>, On behalf of the whole \ndepartment,welcome onboard! We believe you will be\na terrific asset to Roleplayer's Paragon!`)
+        .setDescription(`Heyyy~ <@${member.id}>, On behalf of the whole \ndepartment,welcome onboard! We believe\n you will bea terrific asset to Roleplayer's Paragon!`)
         .setTimestamp()
         .setFooter({ text: 'Welcome'})
         .setThumbnail(client.user.displayAvatarURL())
