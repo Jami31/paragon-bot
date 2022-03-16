@@ -5,7 +5,7 @@ const background = "https://i.postimg.cc/T1RzPgzv/PARAGONwelcome.gif"
 const dim = {
     height: 670,
     width: 1864,
-    margin: 0
+    margin: 100
 }
 
 const av = {
