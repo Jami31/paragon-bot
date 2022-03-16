@@ -17,7 +17,7 @@ const av = {
 const generateImage = async (member) => {
     let username = member.user.username
     let discrim = member.user.discriminator
-    let avatarURL = member.user.displayAvatarURL({format: "gif", dynamic: false, size: av.size})
+    let avatarURL = member.user.displayAvatarURL({format: "png", dynamic: false, size: av.size})
 
     const canvas = Canvas.createCanvas(dim.width, dim.height)
     const ctx = canvas.getContext("2d")
@@ -58,7 +58,7 @@ const generateImage = async (member) => {
     // ctx.font = "40px BankGothic Md BT"
     // ctx.fillText("T O  P A R A G O N", dim.width / 2, dim.height - dim.margin - 50)
 
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.gif")
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
     return attachment
 
 
