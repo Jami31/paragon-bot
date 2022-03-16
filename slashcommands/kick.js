@@ -4,7 +4,7 @@ const run = async (client, interaction) => {
 
 	const kickedEmbed = new Discord.MessageEmbed()
         .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
-        .setColor('#2E2F33')
+        .setColor('#2f3136')
         .setTitle('Kicked')
         .setDescription(`${member.user} has been kicked out for \n *${reason}*`)
         .setTimestamp()
