@@ -51,9 +51,19 @@ module.exports = bot
 
  client.on("guildMemberAdd", async (member) => {
     const img = await generateImage(member)
+
+    const welcomeEmbed = new Discord.MessageEmbed()
+        .setAuthor("Paragon", client.user.displayAvatarURL({ dynamic: true }))
+        .setColor('#2f3136')
+        .setTitle('Welcome!')
+        .setDescription(`Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`)
+        .setTimestamp()
+        .setFooter({ text: 'Ban'})
+        .setThumbnail(client.user.displayAvatarURL())
+        .setImage(img)
+
           member.guild.channels.cache.get(welcomeChannelId).send({
-          content: `Hey <@${member.id}>, On behalf of the whole department, welcome onboard! We believe you will be a terrific asset to Roleplayer's Paragon!`,
-          files: [img]
+          embeds: [welcomeEmbed]
      })
  })
 client.login(process.env.TOKEN)
