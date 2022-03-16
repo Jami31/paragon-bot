@@ -63,6 +63,7 @@ client.on("generateImage", async (member) => {
            .setImage(`attachment://welcome.png`)
            .attachFiles(attachment)
    
-            channel.send(welcomeEmbed)
-        
+           member.guild.channels.cache.get(welcomeChannelId).send({
+            embeds: [welcomeEmbed]
+        })
 })
