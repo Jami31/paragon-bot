@@ -63,7 +63,8 @@ module.exports = bot
         .setThumbnail(client.user.displayAvatarURL())
 
           member.guild.channels.cache.get(welcomeChannelId).send({
-          embeds: [welcomeEmbed]
+          embeds: [welcomeEmbed],
+          files: [img]
      })
  })
 client.login(process.env.TOKEN)
