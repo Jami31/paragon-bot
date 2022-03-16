@@ -2,6 +2,14 @@ const Canvas = require ("canvas")
 const Discord = require("discord.js")
 const background = "https://i.postimg.cc/dVSpq0PH/frfrwelcome.png"
 
+const client = new Discord.Client({
+    intents: [
+        "GUILDS",
+        "GUILD_MESSAGES",
+        "GUILD_MEMBERS"
+    ]
+})
+
 
 const dim = {
     height: 559,
@@ -59,6 +67,11 @@ const generateImage = async (member) => {
     // ctx.font = "40px BankGothic Md BT"
     // ctx.fillText("T O  P A R A G O N", dim.width / 2, dim.height - dim.margin - 50)
 
+
+    client.on("guildMemberAdd", async (member) => {
+
+        const img = await generateImage(member)
+
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")
     const welcomeChannelId = "948138787391799306"
    
@@ -77,7 +90,7 @@ const generateImage = async (member) => {
              member.guild.channels.cache.get(welcomeChannelId).send({
              embeds: [welcomeEmbed]
         })
-
+    })
 }
 
 module.exports = generateImage
