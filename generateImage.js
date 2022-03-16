@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const background = "https://i.postimg.cc/T1RzPgzv/PARAGONwelcome.gif"
 
 const dim = {
-    height: 369,
+    height: 569,
     width: 1298,
     margin: 50
 }
