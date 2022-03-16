@@ -6,7 +6,7 @@ const run = async (client, interaction) => {
         .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
         .setColor('#2f3136')
         .setTitle('Ban')
-        .setDescription(`${member.user} has been Banned out for \n *${reason}*`)
+        .setDescription(`${member.user} has been Banned out for \n ***${reason}***`)
         .setTimestamp()
         .setFooter({ text: 'Ban'})
         .setThumbnail(client.user.displayAvatarURL())
